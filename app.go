@@ -86,7 +86,7 @@ func Handler(rxstream rx.RxStream) rx.RxStream {
 	stream := rxstream.
 		Subscribe(NoiseDataKey).
 		OnObserve(callback).
-		BufferWithTimeOrCount(rxgo.WithDuration(50*time.Second), 30).
+		BufferWithTimeOrCount(rxgo.WithDuration(5*time.Second), 30).
 		Map(saveDocs).
 		StdOut().
 		Encode(NoiseDataKey)
