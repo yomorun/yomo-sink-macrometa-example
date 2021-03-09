@@ -1,30 +1,3 @@
-# C8CONNECTOR
-
-Macrometa 🙌 YoMo. Demonstrates how to integrate Macrometa to YoMo and bulk insert data into Macrometa after stream processing.
-
-## About Macrometa
-
-Build faster, real-time applications and APIs on our secure, programmable stateful-serverless platform. 
-
-For more information, please visit [Macrometa homepage](https://www.macrometa.com/).
-
-## About YoMo
-
-[YoMo](https://github.com/yomorun/yomo) is an open-source Streaming Serverless Framework for building Low-latency Edge Computing applications. Built atop QUIC Transport Protocol and Functional Reactive Programming interface. makes real-time data processing reliable, secure, and easy.
-
-## Quick Start
-
-### Install yomo cli
-
-please visit [Yomo homepage](https://github.com/yomorun/yomo#1-install-cli).
-
-### Create your serverless app
-
-please visit [Yomo homepage](https://github.com/yomorun/yomo#2-create-your-serverless-app).
-
-### Copy `app.go` to your serverless app
-
-```go
 package main
 
 import (
@@ -119,23 +92,3 @@ func Handler(rxstream rx.RxStream) rx.RxStream {
 		Encode(NoiseDataKey)
 	return stream
 }
-
-```
-
-### Run your serverless app in development
-
-```bash
-=> macrometaUrl=https://gdn.paas.macrometa.io macrometaapikey=xxxxx yomo dev
-2021/03/09 16:16:58 Building the Serverless Function File...
-2021/03/09 16:16:59 ✅ Listening on 0.0.0.0:4242
-[StdOut]:  ⚡️ 30 successfully stored in the macrometa
-[StdOut]:  ⚡️ 30 successfully stored in the macrometa
-[StdOut]:  ⚡️ 30 successfully stored in the macrometa
-[StdOut]:  ⚡️ 30 successfully stored in the macrometa
-[StdOut]:  ⚡️ 30 successfully stored in the macrometa
-[StdOut]:  ⚡️ 30 successfully stored in the macrometa
-[StdOut]:  ⚡️ 30 successfully stored in the macrometa
-```
-### Verify data in Macrometa
- <img height="200px" src="./macrometa.png" />
-
