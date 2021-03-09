@@ -1,10 +1,10 @@
-# C8CONNECTOR
+# YoMo-Sink-Macrometa-example
 
-Macrometa 🙌 YoMo. Demonstrates how to integrate Macrometa to YoMo and bulk insert data into Macrometa after stream processing.
+Macrometa 🙌 YoMo. This example demonstrates how to integrate Macrometa to YoMo and bulk insert data into Macrometa cloud after pre-processing on the edge.
 
 ## About Macrometa
 
-Build faster, real-time applications and APIs on our secure, programmable stateful-serverless platform. 
+Macrometa provides a noSQL database, Pub/Sub, Event Processing, and computing platform for building geo-distributed applications. Developers use Macrometa to build highly performant stateful apps and APIs
 
 For more information, please visit [Macrometa homepage](https://www.macrometa.com/).
 
@@ -14,13 +14,9 @@ For more information, please visit [Macrometa homepage](https://www.macrometa.co
 
 ## Quick Start
 
-### Install yomo cli
+### Install YoMo cli and create a serverless edge applicatioons
 
-please visit [Yomo homepage](https://github.com/yomorun/yomo#1-install-cli).
-
-### Create your serverless app
-
-please visit [Yomo homepage](https://github.com/yomorun/yomo#2-create-your-serverless-app).
+please visit [YoMo homepage](https://github.com/yomorun/yomo#1-install-cli).
 
 ### Copy `app.go` to your serverless app
 
@@ -59,6 +55,7 @@ func init() {
 	Macrometaapikey = fmt.Sprintf("apikey %s", os.Getenv("macrometaapikey"))
 }
 
+// demonstrates a noise sensor 
 type NoiseData struct {
 	Noise float32 `y3:"0x11"`
 	Time  int64   `y3:"0x12"`
@@ -117,6 +114,7 @@ func Handler(rxstream rx.RxStream) rx.RxStream {
 		Map(saveDocs).
 		StdOut().
 		Encode(NoiseDataKey)
+		
 	return stream
 }
 
